@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @victorpianwi
 - 👀 I’m a Programmer
-- 🌱 I’m currently learning Web Development with PHP and MySQL
+- 🌱 I’m a web developer
 - 💞️ I’m looking to collaborate on building projects with anyone that needs my services.
 - 📫 How to reach me: You can reach me via my Mail @ victorpianwi@gmail.com or via my phone number @ +234 812 892 9129
 
