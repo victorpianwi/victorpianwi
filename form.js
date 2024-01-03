@@ -1,38 +1,59 @@
 
 $(function()
 {
-    function after_form_submitted(data) 
+
+    function after_form_submitted() 
     {
-        if(data.result == 'success')
-        {
-            $('#success_message').show();
-            $('#error_message').hide();
-        }
-        else
-        {
-            $('#error_message').append('<ul></ul>');
 
-            jQuery.each(data.errors,function(key,val)
-            {
-                $('#error_message ul').append('<li>'+key+':'+val+'</li>');
-            });
-            $('#success_message').hide();
-            $('#error_message').show();
 
-            //reverse the response on the button
-            $('button[type="button"]', $form).each(function()
-            {
-                $btn = $(this);
-                label = $btn.prop('orig_label');
+        let params = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            phone: $("#phone").val(),
+            message: $("#message").val(),
+        };
+    
+        const serviceId = "service_k5w0zyk";
+        const templateId = "template_r4bhn0q";
+    
+        emailjs.send(serviceId, templateId, params)
+        .then(res => {
+                document.querySelector('#contact_form').reset();
+                console.log(res);
+                $('#success_message').show();
+                $('#error_message').hide();
+
+                //reverse the response on the button                
+                $btn = $('input[type="button"]');
+                label = "Send Message";
                 if(label)
                 {
                     $btn.prop('type','submit' ); 
-                    $btn.text(label);
-                    $btn.prop('orig_label','');
+                    $btn.val(label);
                 }
-            });
+
+                setTimeout(()=>{
+                    $('#success_message').hide();
+                }, 5000);
+        })                
+        .catch((err) => {
+            $('#error_message').append('<ul></ul>');
+
+            $('#error_message ul').append('<li>'+err+'</li>');
+
+            $('#success_message').hide();
+            $('#error_message').show();
             
-        }//else
+            //reverse the response on the button
+            $btn = $('input[type="button"]');
+            label = "Send Message";
+            if(label)
+            {
+                $btn.prop('type','submit' ); 
+                $btn.val(label);
+            }
+        });
+        
     }
 
 	$('#contact_form').submit(function(e)
@@ -41,22 +62,15 @@ $(function()
 
         $form = $(this);
         //show some response on the button
-        $('button[type="submit"]', $form).each(function()
+        $('input[type="submit"]', $form).each(function()
         {
             $btn = $(this);
-            $btn.prop('type','button' ); 
-            $btn.prop('orig_label',$btn.text());
-            $btn.text('Sending ...');
-        });
-        
+            $btn.prop('type','button' );
+            $btn.val('Sending ...');
 
-                    $.ajax({
-                type: "POST",
-                url: 'handler.php',
-                data: $form.serialize(),
-                success: after_form_submitted,
-                dataType: 'json' 
-            });        
+        });
+
+        after_form_submitted();
         
       });	
 });
