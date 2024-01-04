@@ -18316,9 +18316,3 @@ a.btn-main,
         height: 40px;
     }
 }
-
-@media(max-width:380px){
-    .foot{
-        height: 20px !important;
-    }
-}
