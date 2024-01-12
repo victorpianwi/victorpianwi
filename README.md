@@ -1,6 +1,6 @@
-- 👋 Hi, I’m @victorpianwi
-- 👀 I’m a Programmer
-- 🌱 I’m a web developer
+- 👋 Hi, I’m Victor Pianwi @victorpianwi
+- 👀 I’m a Freelancer
+- 🌱 I’m a Developer, Technical Writer, Community Manager, Airdrop Hunter and Web 3 Project Tester
 - 💞️ I’m looking to collaborate on building projects with anyone that needs my services.
 - 📫 How to reach me: You can reach me via my Mail @ victorpianwi@gmail.com or via my phone number @ +234 812 892 9129
 
