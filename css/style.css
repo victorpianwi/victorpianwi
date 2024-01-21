@@ -18195,6 +18195,12 @@ a.btn-main,
 
 .hashnodelogo{
     width: 15px;
+    margin-top: -2px;
+}
+
+.quoralogo{
+    width: 15px;
+    margin-top: -2px;
 }
 
 .field-set{
